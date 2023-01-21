@@ -1,5 +1,4 @@
-
-// ----------------- Books -------------------
+// ----------------- Book -------------------
 
 function Book(title, author, pages, read=false) {
     this.title = title;
@@ -9,13 +8,10 @@ function Book(title, author, pages, read=false) {
     this.heart = false;
     this.addBookToDOM();
 }
-
 // Book.myLibrary = [];
-
 // Book.addBookToLibrary = function(book) {
 //     this.myLibrary.push(book);
 // }
-
 // Book.getBooks = function() {
 //     return this.myLibrary;
 // }
@@ -101,7 +97,7 @@ const bookForm = document.getElementById('book-form');
 
 submitBtn.addEventListener('click', (e) => {
     form = bookForm.elements;
-    if (form['title'].value && form['author'].value) {
+    if (form['title'].value && form['author'].value && !isNaN(form['page-num'].value)) {
         let book = new Book(form['title'].value, form['author'].value, form['page-num'].value, form['read'].checked);
         if (formWrapper.style.display === "flex") formWrapper.style.display = 'none';
         e.preventDefault();
@@ -113,8 +109,8 @@ submitBtn.addEventListener('click', (e) => {
 
 
 let b3 = new Book('Title', 'Author', 107, true);
-let b4 = new Book('This book has a really realy really realy really realy long title', 'JavaScript', 6, true);
-let b5 = new Book('Title', 'Author', 107, false);
+let b4 = new Book('This book has a really realy really realy really really realy long title', 'Author', 1000, true);
+let b5 = new Book('Title title title tiiiitle', 'Author', 107, false);
 let b6 = new Book('Title', 'Author', 107, false);
-let b8 = new Book('This book has a really looooooooooooooooooooooooooong title', 'JavaScript', 6, false);
+let b8 = new Book('This book has a really looooooooooooooooooooooooooong title', 'Author Author Author', 1, false);
 let b11 = new Book('Title', 'Author', 107, true);
