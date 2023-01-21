@@ -24,12 +24,12 @@
 
     <div class="form-wrapper">
         <form action="" id="book-form">
-            <input type="text" id="title" name="title" placeholder="Title">
-            <input type="text" id="author" name="author" placeholder="Author">
-            <input type="number" id="page-num" name="page-num" min=1 placeholder="Page number">
+            <input type="text" id="title" name="title" placeholder="Title" required>
+            <input type="text" id="author" name="author" placeholder="Author" required>
+            <input type="number" id="page-num" name="page-num" min=1 placeholder="Page number" required>
             <label for="read">Have you read it?
             <input type="checkbox" name="read" id="read"></label>
-            <button type="button" id="submit">Submit</button>
+            <button type="submit" id="submit">Submit</button>
         </form>
     </div>
 

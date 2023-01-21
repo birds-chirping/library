@@ -1,23 +1,5 @@
 
-// --------------- form -------------------
-
-const addBtn = document.querySelector(".add-book-btn");
-const form = document.querySelector('.form-wrapper');
-
-addBtn.addEventListener('click', showForm);
-form.addEventListener('click', closeForm);
-document.addEventListener('keydown', closeForm);
-
-function showForm() {
-    form.style.display = 'flex';
-}
-
-function closeForm(e) {
-    if (this !== e.target && e.key !== 'Escape') return;
-    if (form.style.display === "flex") form.style.display = 'none';
-}
-
-// -----------------------------------------
+// ----------------- Books -------------------
 
 function Book(title, author, pages, read=false) {
     this.title = title;
@@ -59,7 +41,6 @@ Book.prototype.addBookToDOM = function() {
     this.bookDiv.appendChild(info);
     this.bookDiv.appendChild(btns);
     document.querySelector(".books").appendChild(this.bookDiv);
-    // Book.addBookToLibrary(this);
     Book.addListeners(this);
 }
 
@@ -95,20 +76,45 @@ Book.addListeners = function(book) {
     });
 }
 
+// --------------- Form -------------------
+
+const addBtn = document.querySelector(".add-book-btn");
+const formWrapper = document.querySelector('.form-wrapper');
+
+addBtn.addEventListener('click', showForm);
+formWrapper.addEventListener('click', closeForm);
+document.addEventListener('keydown', closeForm);
+
+function showForm() {
+    formWrapper.style.display = 'flex';
+}
+
+function closeForm(e) {
+    if (this !== e.target && e.key !== 'Escape') return;
+    if (formWrapper.style.display === "flex") formWrapper.style.display = 'none';
+}
+
+// --------------- input -------------------
+
+const submitBtn = document.getElementById('submit');
+const bookForm = document.getElementById('book-form');
+
+submitBtn.addEventListener('click', (e) => {
+    form = bookForm.elements;
+    if (form['title'].value && form['author'].value) {
+        let book = new Book(form['title'].value, form['author'].value, form['page-num'].value, form['read'].checked);
+        if (formWrapper.style.display === "flex") formWrapper.style.display = 'none';
+        e.preventDefault();
+        bookForm.reset();
+    }
+    // Book.addBookToLibrary(book);
+})
 
 
 
-
-
-let b1 = new Book('Title', 'Author', 107, true);
-let b2 = new Book('Title', 'Author', 107, false);
 let b3 = new Book('Title', 'Author', 107, true);
 let b4 = new Book('This book has a really realy really realy really realy long title', 'JavaScript', 6, true);
 let b5 = new Book('Title', 'Author', 107, false);
 let b6 = new Book('Title', 'Author', 107, false);
-let b7 = new Book('And this one', 'JavaScript', 6);
 let b8 = new Book('This book has a really looooooooooooooooooooooooooong title', 'JavaScript', 6, false);
-let b9 = new Book('Title', 'Author', 107, true);
-let b10 = new Book('Title', 'Author', 107, false);
 let b11 = new Book('Title', 'Author', 107, true);
-
