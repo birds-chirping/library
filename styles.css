@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'typo_draft_demoregular';
     src: url('./fonts/typo_draft_demo-webfont.woff2') format('woff2'),
@@ -21,6 +22,15 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'icons';
+    src: url('../fonts/icons.woff2?6856195') format('woff2'),
+         url('../fonts/icons.woff?6856195') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 /* @font-face {
     font-family: 'caviar_dreamsbold_italic';
@@ -55,7 +65,7 @@ body {
     "header"
     "main"
     "footer";
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 a:link, a:visited {
@@ -99,7 +109,8 @@ a:hover, a:focus, a:active {
     height: 5rem;
     background: white;
     color: #845EC2;
-    font-weight: 700;
+    font-family: 'caviar_dreamsbold';
+    font-size: 1.5rem;
     border: 0.15rem solid black;
     box-shadow: 0.2rem 0.2rem black;
     transform: translate(-0.2rem, -0.2rem);
@@ -154,14 +165,6 @@ main {
     justify-content: center;
 }
 
-.book-btns {
-    flex: 1;
-    width: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-}
-
 .b-title {
     font-family: 'caviar_dreamsbold';
     font-size: 2rem;
@@ -177,6 +180,53 @@ main {
     font-size: 0.8rem;
 }
 
+/* -------- buttons & icons -------- */
+
+.book-btns {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.book-btns > * {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: black;
+}
+
+.book-btns span::before {
+    font-family: 'icons';
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+.icon-ok::before {
+    content: '\e802';
+}
+
+.icon-ok:hover::before,
+.icon-ok.read::before {
+    color:#00C9A7;
+}
+
+.icon-heart-empty::before { 
+    content: '\e800';
+} 
+.icon-heart-empty:hover::before,
+.icon-heart::before { 
+    content: '\e801';
+    color:#C493FF;
+}
+
+.icon-cancel::before {
+    content: '\e804';
+} 
+.icon-cancel:hover::before {
+    color: #ff518b;
+}
 
 
 /* -------- form -------- */
@@ -213,12 +263,13 @@ footer {
     text-align: center;
     padding: 0.5rem;
     color: white;
-
 }
 
 .github-icon {
     max-height: 1.5rem;
 }
+
+
 /* -------- media -------- */
 
 @media screen and (orientation: portrait) {
@@ -233,5 +284,6 @@ footer {
     .add-book-btn {
         width: 11vw;
         height: 11vw;
+        font-size: 3vw;
     }
 }
