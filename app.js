@@ -8,6 +8,7 @@ function Book(title, author, pages, read=false) {
     this.heart = false;
     this.addBookToDOM();
 }
+
 // Book.myLibrary = [];
 // Book.addBookToLibrary = function(book) {
 //     this.myLibrary.push(book);
@@ -21,8 +22,7 @@ Book.prototype.addBookToDOM = function() {
     let info = Book.createElem('div', 'book-info');
     info.appendChild(Book.createElem('p', 'b-title', this.title));
     info.appendChild(Book.createElem('p', 'b-author', `By ${this.author}`));
-    info.appendChild(Book.createElem('p', 'b-pages', `${this.pages} pages`));
-
+    info.appendChild(Book.createElem('p', 'b-pages', `${this.pages} page${'s'.repeat(this.pages!=1)}`));
     let btns = Book.createElem('div', 'book-btns');
     this.readDiv = Book.createElem('button', 'b-read icon-ok');
     this.heartDiv = Book.createElem('button', 'b-love icon-heart');
