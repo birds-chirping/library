@@ -40,13 +40,13 @@
     font-style: normal;
 } */
 
-/* @font-face {
+@font-face {
     font-family: 'caviar_dreamsitalic';
     src: url('./fonts/caviardreams_italic-webfont.woff2') format('woff2'),
          url('./fonts/caviardreams_italic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-} */
+}
 
 
 * {
@@ -75,7 +75,7 @@ a:link, a:visited {
     color: rgba(255, 255, 255, 0.877);
     font-family: 'caviar_dreamsbold';
     font-size: 1.1rem;
-    text-shadow: 0.15rem 0.1rem 0.2rem #00493d;
+    text-shadow: 0.15rem 0.1rem 0.15rem #00493d;
 }
 
 a:hover, a:focus, a:active {
@@ -137,18 +137,20 @@ main {
 
 .books {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
+    align-items: center;
 }
 
 .book {
-    height: 20rem;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    gap: 2rem;
     font-weight: 700;
     overflow: hidden;
     padding: 1.5rem;
@@ -160,24 +162,36 @@ main {
 
 .book-info {
     flex: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+    word-wrap:break-word;
+    /* border: 1px solid red; */
 }
+
 
 .b-title {
     font-family: 'caviar_dreamsbold';
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 
 .b-author {
-    font-family: 'caviar_dreamsregular';
-    font-size: 1.3rem;
+    font-family: 'caviar_dreamsbold';
+    font-size: 1.5rem;
+    color: #8b8a8d;
+    margin-bottom: 1rem;
+
 }
 
 .b-pages {
-    font-family: 'caviar_dreamsregular';
-    font-size: 0.8rem;
+    font-family: 'caviar_dreamsitalic';
+    font-size: 0.9rem;
+    color: #8b8a8d;
+    align-self: flex-end;
+
 }
 
 /* -------- buttons & icons -------- */
@@ -197,37 +211,39 @@ main {
     color: black;
 }
 
-.book-btns span::before {
+.book-btns button::before {
     font-family: 'icons';
     font-size: 1.5rem;
     padding: 0.5rem;
 }
 
+/* --------------------- */
 .icon-ok::before {
     content: '\e802';
 }
 
-.icon-ok:hover::before,
-.icon-ok.read::before {
+.icon-ok.selected::before {
     color:#00C9A7;
 }
 
-.icon-heart-empty::before { 
+/* --------------------- */
+.icon-heart::before { 
     content: '\e800';
 } 
-.icon-heart-empty:hover::before,
-.icon-heart::before { 
+
+.icon-heart.selected::before { 
     content: '\e801';
     color:#C493FF;
 }
-
+/* --------------------- */
 .icon-cancel::before {
     content: '\e804';
 } 
-.icon-cancel:hover::before {
+
+
+.icon-cancel:focus::before {
     color: #ff518b;
 }
-
 
 /* -------- form -------- */
 
@@ -285,5 +301,19 @@ footer {
         width: 11vw;
         height: 11vw;
         font-size: 3vw;
+    }
+}
+
+@media (hover: hover) {
+    .icon-ok:hover::before {
+        color:#41dbc2;
+    }
+
+    .icon-heart:hover::before {
+        color:#C493FF;
+    }
+    
+    .icon-cancel:hover::before {
+        color: #ff518b;
     }
 }
