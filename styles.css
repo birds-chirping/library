@@ -105,10 +105,11 @@ a:hover, a:focus, a:active {
 
 .add-book-btn:hover,
 .add-book-btn:focus {
-    background: white;
-    color: #845EC2;
-    box-shadow: 0 0 0.4rem #00000098;
-    transition: 200ms;
+    background: #9376c4;
+    color: #ffffff;
+    box-shadow: 0 0 4rem #d1fff7,
+                0 0 1rem #ffffff;
+    transition: 50ms;
 }
 
 /* -------- main -------- */
